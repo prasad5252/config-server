@@ -153,16 +153,32 @@
 <button class="btn" id="noBtn">No 😢</button>
 <div id="surprise">💖 I Love You So Much, Wifey...! 💕✨ <br> &nbsp;Yours <br> Loving husband <b>Prasad</b></div>
 
+
+
 </div>
 
 
 <audio id="bgMusic" src="valentine.mp3"></audio>
+<audio id="hoverSound" src="no-sound.mp3"></audio>
 <script>
 
     const noBtn = document.getElementById("noBtn");
     const container = document.querySelector(".container");
+   const hoverSound = document.getElementById("hoverSound");
+
+   document.addEventListener("click", function () {
+    hoverSound.play().then(() => {
+        hoverSound.pause();
+        hoverSound.currentTime = 0;
+    }).catch(() => {});
+}, { once: true });
 
  noBtn.addEventListener("mouseenter", function (e) {
+
+
+     hoverSound.play().catch(() => {
+        console.log("Hover sound blocked until user interaction");
+    });
 
     const btnWidth = noBtn.offsetWidth;
     const btnHeight = noBtn.offsetHeight;
