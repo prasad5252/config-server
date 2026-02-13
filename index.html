@@ -20,7 +20,7 @@
 }
 
 #valentineBtn {
-    margin-top: 25px;
+    margin-top: 500px;
     margin-bottom: 500px;
 }
     body {
@@ -31,12 +31,6 @@
         font-family: 'Segoe UI', sans-serif;
         text-align: center;
         color: white;
-
-        display: flex;
-    flex-direction: column;
-    justify-content: center; /* vertical centering */
-    align-items: center;     /* horizontal centering */
-    min-height: 100vh; 
     }
     .container {
     position: relative;
@@ -45,7 +39,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
 }
 
     h1 {
@@ -115,6 +108,21 @@
         top: 0;
     }
 
+     .btn {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.3s;
+        position: relative;
+    }
+
+
+
+
+
     @keyframes float {
         0% {
             transform: translateY(0) rotate(45deg);
@@ -133,81 +141,122 @@
     <h1 id="typing"></h1>
     <img src="page-photo.jpg" id="lovePhoto" alt="My Valentine">
 
-    <button onclick="showSurprise()">Will you be my Valentine? 💌</button>
+<!--    <button onclick="showSurprise()">Will you be my Valentine? 💌</button>-->
 
-    <div id="surprise">💖 I Love You So Much, Wifey...! 💕✨ <br> &nbsp;Yours <br> Loving husband <b>Prasad</b></div>
-    
+
 
 </div>
+
+<br>
+<h1>Will you be my Valentine? 💘</h1>
+<button class="btn" id="yesBtn" onclick="showSurprise()">Yes 💖</button>
+<button class="btn" id="noBtn">No 😢</button>
+    <div id="surprise">💖 I Love You So Much, Wifey...! 💕✨ <br> &nbsp;Yours <br> Loving husband <b>Prasad</b></div>
+
+</div>
+
+
 <audio id="bgMusic" src="valentine.mp3"></audio>
 <script>
-    // Typing Effect
-    const message = "You make my world brighter every day 💖";
-    let i = 0;
 
-    function typeEffect() {
-        if (i < message.length) {
-            document.getElementById("typing").innerHTML += message.charAt(i);
-            i++;
-            setTimeout(typeEffect, 60);
-        }
+    const noBtn = document.getElementById("noBtn");
+    const container = document.querySelector(".container");
+
+ noBtn.addEventListener("mouseenter", function (e) {
+
+    const btnWidth = noBtn.offsetWidth;
+    const btnHeight = noBtn.offsetHeight;
+
+    const moveRadius = 200; // how far from mouse (adjust if needed)
+
+    // Generate random offset near mouse
+    let randomX = e.clientX + (Math.random() - 0.5) * moveRadius;
+    let randomY = e.clientY + (Math.random() - 0.5) * moveRadius;
+
+    // Clamp inside window boundaries
+    const maxX = window.innerWidth - btnWidth;
+    const maxY = window.innerHeight - btnHeight;
+
+    randomX = Math.max(0, Math.min(randomX, maxX));
+    randomY = Math.max(0, Math.min(randomY, maxY));
+
+    noBtn.style.position = "fixed"; // ensure correct positioning
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+});
+
+
+
+
+
+       // Typing Effect
+       const message = "You make my world brighter every day 💖";
+       let i = 0;
+
+       function typeEffect() {
+           if (i < message.length) {
+               document.getElementById("typing").innerHTML += message.charAt(i);
+               i++;
+               setTimeout(typeEffect, 60);
+           }
+       }
+
+       typeEffect();
+
+       // Surprise Button
+       function showSurprise() {
+           document.getElementById("surprise").style.display = "block";
+           document.getElementById("bgMusic").play();
+           const confettiInterval = setInterval(createSprinkleConfetti, 50);
+           heartInterval = setInterval(createHeart, 300);
+       }
+
+       // Floating Hearts Generator
+       function createHeart() {
+           const heart = document.createElement("div");
+           heart.classList.add("heart");
+           heart.style.left = Math.random() * 100 + "vw";
+           heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+           document.body.appendChild(heart);
+
+           setTimeout(() => {
+               heart.remove();
+           }, 8000);
+       }
+
+       //setInterval(createHeart, 300);
+
+       function createSprinkleConfetti() {
+       const confetti = document.createElement("div");
+       confetti.style.position = "absolute";
+       confetti.style.width = Math.random() * 6 + 4 + "px";   // 4-10px size
+       confetti.style.height = confetti.style.width;
+       confetti.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
+       confetti.style.borderRadius = "50%";
+       confetti.style.left = Math.random() * window.innerWidth + "px";
+       confetti.style.top = "-10px";
+       confetti.style.opacity = Math.random() * 0.8 + 0.2;
+       confetti.style.pointerEvents = "none";
+       document.body.appendChild(confetti);
+
+       let speed = Math.random() * 2 + 1; // 1-3 px per frame
+       let drift = Math.random() * 2 - 1; // horizontal drift -1 to 1
+
+       function fall() {
+           let top = parseFloat(confetti.style.top);
+           let left = parseFloat(confetti.style.left);
+           if(top < window.innerHeight) {
+               confetti.style.top = top + speed + "px";
+               confetti.style.left = left + drift + "px";
+               requestAnimationFrame(fall);
+           } else {
+               confetti.remove();
+           }
+       }
+
+       fall();
+
     }
-
-    typeEffect();
-
-    // Surprise Button
-    function showSurprise() {
-        document.getElementById("surprise").style.display = "block";
-        document.getElementById("bgMusic").play();
-        const confettiInterval = setInterval(createSprinkleConfetti, 50);
-    }
-
-    // Floating Hearts Generator
-    function createHeart() {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = (5 + Math.random() * 5) + "s";
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, 8000);
-    }
-
-    setInterval(createHeart, 300);
-
-    function createSprinkleConfetti() {
-    const confetti = document.createElement("div");
-    confetti.style.position = "absolute";
-    confetti.style.width = Math.random() * 6 + 4 + "px";   // 4-10px size
-    confetti.style.height = confetti.style.width;
-    confetti.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
-    confetti.style.borderRadius = "50%";
-    confetti.style.left = Math.random() * window.innerWidth + "px";
-    confetti.style.top = "-10px";
-    confetti.style.opacity = Math.random() * 0.8 + 0.2;
-    confetti.style.pointerEvents = "none";
-    document.body.appendChild(confetti);
-
-    let speed = Math.random() * 2 + 1; // 1-3 px per frame
-    let drift = Math.random() * 2 - 1; // horizontal drift -1 to 1
-
-    function fall() {
-        let top = parseFloat(confetti.style.top);
-        let left = parseFloat(confetti.style.left);
-        if(top < window.innerHeight) {
-            confetti.style.top = top + speed + "px";
-            confetti.style.left = left + drift + "px";
-            requestAnimationFrame(fall);
-        } else {
-            confetti.remove();
-        }
-    }
-
-    fall();
-
-}
 
 
 
@@ -216,7 +265,3 @@
 
 </body>
 </html>
-
-
-
-
