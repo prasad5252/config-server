@@ -1,139 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Be My Valentine 💖</title>
-<style>
+    <meta charset="UTF-8">
+    <title>Be My Valentine 💖</title>
+    <style>
 
 
-#lovePhoto {
-    width: 600px;
-    border-radius: 20px;
-    margin-top: 20px;
-    box-shadow: 0 0 30px rgba(255, 0, 100, 0.8);
-    animation: floatPhoto 3s ease-in-out infinite;
-}
-
-@keyframes floatPhoto {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-#valentineBtn {
-    margin-top: 500px;
-    margin-bottom: 500px;
-}
-    body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-        font-family: 'Segoe UI', sans-serif;
-        text-align: center;
-        color: white;
-    }
-    .container {
-    position: relative;
-    z-index: 10;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-    h1 {
-        margin-top: 40px;
-        font-size: 40px;
-        min-height: 60px;
-    }
-
-    button {
-        margin-top: 25px;
-        margin-bottom: 25px;
-        padding: 15px 30px;
-        font-size: 18px;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        background-color: #ff4d6d;
-        color: white;
-        transition: 0.3s;
-    }
-
-    button:hover {
-        background-color: #ff1e4d;
-        transform: scale(1.1);
-    }
-
-    #surprise {
-        display: none;
-        font-size: 30px;
-        margin-top: 20px;
-        animation: pop 1s ease forwards;
-    }
-
-    @keyframes pop {
-        from { transform: scale(0); }
-        to { transform: scale(1); }
-    }
-
-    /* Floating Hearts */
-    .heart {
-        position: absolute;
-        bottom: -20px;
-        width: 20px;
-        height: 20px;
-        background: red;
-        transform: rotate(45deg);
-        animation: float 8s linear infinite;
-    }
-
-    .heart::before,
-    .heart::after {
-        content: '';
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background: red;
-        border-radius: 50%;
-    }
-
-    .heart::before {
-        top: -10px;
-        left: 0;
-    }
-
-    .heart::after {
-        left: -10px;
-        top: 0;
-    }
-
-     .btn {
-        padding: 12px 25px;
-        font-size: 18px;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        margin: 10px;
-        transition: 0.3s;
-        position: relative;
-    }
-
-
-
-
-
-    @keyframes float {
-        0% {
-            transform: translateY(0) rotate(45deg);
-            opacity: 1;
+        #lovePhoto {
+            width: 600px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 30px rgba(255, 0, 100, 0.8);
+            animation: floatPhoto 3s ease-in-out infinite;
         }
-        100% {
-            transform: translateY(-800px) rotate(45deg);
-            opacity: 0;
+
+        @keyframes floatPhoto {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
-    }
-</style>
+
+        #valentineBtn {
+            margin-top: 500px;
+            margin-bottom: 500px;
+        }
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+                font-family: 'Segoe UI', sans-serif;
+                text-align: center;
+                color: white;
+            }
+            .container {
+            position: relative;
+            z-index: 10;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            h1 {
+                margin-top: 40px;
+                font-size: 40px;
+                min-height: 60px;
+            }
+
+            button {
+                margin-top: 25px;
+                margin-bottom: 25px;
+                padding: 15px 30px;
+                font-size: 18px;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                background-color: #ff4d6d;
+                color: white;
+                transition: 0.3s;
+            }
+
+            button:hover {
+                background-color: #ff1e4d;
+                transform: scale(1.1);
+            }
+
+            #surprise {
+                display: none;
+                font-size: 30px;
+                margin-top: 20px;
+                animation: pop 1s ease forwards;
+            }
+
+            @keyframes pop {
+                from { transform: scale(0); }
+                to { transform: scale(1); }
+            }
+
+            /* Floating Hearts */
+            .heart {
+                position: absolute;
+                bottom: -20px;
+                width: 20px;
+                height: 20px;
+                background: red;
+                transform: rotate(45deg);
+                animation: float 8s linear infinite;
+            }
+
+            .heart::before,
+            .heart::after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background: red;
+                border-radius: 50%;
+            }
+
+            .heart::before {
+                top: -10px;
+                left: 0;
+            }
+
+            .heart::after {
+                left: -10px;
+                top: 0;
+            }
+
+             .btn {
+                padding: 12px 25px;
+                font-size: 18px;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                margin: 10px;
+                transition: 0.3s;
+                position: relative;
+            }
+
+
+
+
+
+            @keyframes float {
+                0% {
+                    transform: translateY(0) rotate(45deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-800px) rotate(45deg);
+                    opacity: 0;
+                }
+            }
+    </style>
 </head>
 <body>
 
@@ -141,7 +141,7 @@
     <h1 id="typing"></h1>
     <img src="page-photo.jpg" id="lovePhoto" alt="My Valentine">
 
-<!--    <button onclick="showSurprise()">Will you be my Valentine? 💌</button>-->
+    <!--    <button onclick="showSurprise()">Will you be my Valentine? 💌</button>-->
 
 
 
@@ -151,7 +151,7 @@
 <h1>Will you be my Valentine? 💘</h1>
 <button class="btn" id="yesBtn" onclick="showSurprise()">Yes 💖</button>
 <button class="btn" id="noBtn">No 😢</button>
-    <div id="surprise">💖 I Love You So Much, Wifey...! 💕✨ <br> &nbsp;Yours <br> Loving husband <b>Prasad</b></div>
+<div id="surprise">💖 I Love You So Much, Wifey...! 💕✨ <br> &nbsp;Yours <br> Loving husband <b>Prasad</b></div>
 
 </div>
 
@@ -207,6 +207,7 @@
        function showSurprise() {
            document.getElementById("surprise").style.display = "block";
            document.getElementById("bgMusic").play();
+           document.getElementById("noBtn").style.display = "none";
            const confettiInterval = setInterval(createSprinkleConfetti, 50);
            heartInterval = setInterval(createHeart, 300);
        }
@@ -265,3 +266,4 @@
 
 </body>
 </html>
+
